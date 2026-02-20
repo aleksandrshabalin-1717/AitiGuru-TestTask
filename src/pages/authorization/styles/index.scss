@@ -1,0 +1,228 @@
+.authorization {
+    width: 100%;
+    min-height: 100%;
+    padding: 50px 30px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249, 249, 249);
+
+    .form-wrap {
+        box-sizing: border-box;
+        width: 527px;
+        padding: 6px;
+        border: 1px solid #EDEDED;
+        border-radius: 40px;
+        background: #FFFFFF;
+        box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .form {
+        box-sizing: border-box;
+        padding: 48px;
+        width: 515px;
+        border-radius: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(35, 35, 35, 0.03) 0%, rgba(35, 35, 35, 0) 50%);
+
+        .logo {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 32px;
+            background: linear-gradient(360deg, rgba(35, 35, 35, 0) 50%, rgba(35, 35, 35, 0.06) 100%), #FFFFFF;
+            box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 12px 8px rgba(0, 0, 0, 0.03);
+            border-radius: 100px;
+        }
+
+        .title {
+            margin-bottom: 32px;
+            font-family: 'Inter';
+            font-style: normal;
+
+            div:nth-child(1) {
+                font-weight: 600;
+                font-size: 40px;
+                line-height: 110%;
+                text-align: center;
+                letter-spacing: -0.015em;
+                color: #232323;
+                margin-bottom: 12px;
+            }
+
+            div:nth-child(2) {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 150%;
+                text-align: center;
+                color: #E0E0E0;
+            }
+        }
+
+        form {
+            width: 399px;
+            font-family: 'Inter';
+            font-style: normal;
+
+            label {
+                display: block;
+                font-size: 18px;
+                line-height: 150%;
+                letter-spacing: -0.015em;
+                margin-bottom: 6px;
+                color: #232323;
+                font-weight: 500;
+            }
+
+            input {
+                margin-bottom: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 150%;
+                letter-spacing: -0.015em;
+                padding: 14px 52px 14px 54px;
+                border: 1px solid #EDEDED;
+                border-radius: 12px;
+                background: #FFFFFF;
+                color: #232323;
+            }
+
+            input.login-input {
+                margin-bottom: 16px;
+            }
+
+            .pass-wrap,
+            .login-wrap {
+                height: 57px;
+                position: relative;
+                margin-bottom: 16px;
+
+                .icon-wrap,
+                .prev-icon-wrap {
+                    width: 52px;
+                    height: 52px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 2px;
+                    right: 2px;
+                    cursor: pointer;
+                }
+
+                .prev-icon-wrap{
+                    left: 2px;
+                }
+            }
+
+            .checkbox {
+                display: flex;
+                align-items: center;
+                margin: 20px 0;
+
+                input {
+                    margin: 0;
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid #EDEDED;
+                    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.17);
+                    margin-right: 12px;
+                }
+
+                label {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 150%;
+                    color: #9C9C9C;
+                    margin-bottom: 0;
+                }
+            }
+
+            button {
+                width: 100%;
+                height: 54px;
+                border: none;
+                outline: none;
+                background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%), #242EDB;
+                box-shadow: 0px 8px 8px rgba(54, 122, 255, 0.03), inset 0px -2px 0px 1px rgba(0, 0, 0, 0.08);
+                color: #FFF;
+                border-radius: 12px;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 120%;
+                letter-spacing: -0.01em;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+
+            button:hover {
+                opacity: 0.7;
+            }
+
+            .error-input {
+                margin-bottom: 16px;
+                font-size: 14px;
+                color: red;
+            }
+
+            .error-fetch {
+                font-size: 16px;
+                line-height: 14px;
+                font-weight: 600;
+                color: red;
+                margin-bottom: 20px;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 17px;
+                border: 1px solid red;
+                background-color: rgba(255, 0, 0, 0.3);
+            }
+
+            .divider {
+                margin-top: 16px;
+                height: 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                > div:nth-child(1),
+                > div:nth-child(3) {
+                    width: 175px;
+                    height: 1px;
+                    background-color: #E0E0E0;
+                }
+
+                > div:nth-child(2) {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 150%;
+                    color: #E0E0E0;
+                }
+            }
+
+            .create-account-link {
+                margin-top: 32px;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 150%;
+                color: #6C6C6C;
+                text-align: center;
+
+                span {
+                    color: blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
