@@ -1,0 +1,24 @@
+.modal {
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+
+    .modal-body {
+        width: 589px;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        padding: 39px;
+        border-radius: 12px;
+    }
+}
+
+.modal.active {
+    transform: scale(1);
+}
