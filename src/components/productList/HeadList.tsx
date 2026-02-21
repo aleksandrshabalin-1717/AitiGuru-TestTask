@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import Icon, { EIconType } from '../icon';
 import { IPropsHeadList, ESortType, ESortDirection } from './interfaces';
 
-const HeadList: FunctionComponent<IPropsHeadList> = (
+const HeadList: FunctionComponent<IPropsHeadList> = memo((
     { sortData, sortDirection, onSort, onSortDirection }
 ) => {
     const onSorted = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -89,6 +89,6 @@ const HeadList: FunctionComponent<IPropsHeadList> = (
             <div className='control' />
         </div>
     );
-};
+});
 
 export default HeadList;

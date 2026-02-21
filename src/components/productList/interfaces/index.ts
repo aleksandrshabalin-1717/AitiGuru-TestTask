@@ -6,13 +6,14 @@ interface IPropsProductList {
     sortDirection: ESortDirection;
     onSort: (sortData: ESortType | null) => void;
     onSortDirection: (sortDirection: ESortDirection) => void;
+    resetData: () => void;
 };
 
 interface IPropsProductListItem {
     item: IProductData;
 };
 
-type IPropsHeadList = Omit<IPropsProductList, 'productList'>
+type IPropsHeadList = Omit<IPropsProductList, 'productList' | 'resetData'>
 
 export {
     IPropsProductList,

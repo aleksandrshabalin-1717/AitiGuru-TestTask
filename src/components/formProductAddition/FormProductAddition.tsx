@@ -98,11 +98,11 @@ const FormProductAddition: FunctionComponent<IPropsFormProductAddition> = ({ onA
         }
 
         onAddProduct({
-            title,
-            category,
-            price,
-            brand,
-            sku,
+            title: title?? '',
+            category: category?? '',
+            price: price?? 0,
+            brand: brand?? '',
+            sku: sku?? '',
         });
 
         setIsSuccess(true);

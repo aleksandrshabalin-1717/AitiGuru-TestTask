@@ -5,10 +5,11 @@ import Loader from '../../components/loader';
 import Modal, { EModalModeType } from '../../components/modal';
 import Pagination from '../../components/pagination';
 import ProductList from '../../components/productList';
+import Search from '../../components/search';
 import FormProductAddition from '../../components/formProductAddition';
 import useProductList from './hooks/useProductList';
 import useAddProduct from './hooks/useAddProduct';
-import { debounceFn, getFormatedTitle } from './utils';
+import { getFormatedTitle } from './utils';
 import './styles/index.scss';
 
 const componentStyleName = 'products';
@@ -21,7 +22,7 @@ const Products: React.FC = () => {
         totalProductList,
         skipProductList,
         isProductListLoad,
-        // fetchProductListError,
+        fetchProductListError,
         sortProductList,
         sortDirectionProductList,
         searchProductList,
@@ -30,36 +31,37 @@ const Products: React.FC = () => {
         setSortDirection,
         setSearch,
         resetData,
+        fetchProductList,
     } = useProductList();
     let { setNewProduct } = useAddProduct();
 
-    const setSearchString = debounceFn(function(event: React.ChangeEvent<HTMLInputElement>) {
-        const searchString: string | null = event.target.value === ''
-            ? null
-            : event.target.value;
-
-        resetData();
-        setSearch(searchString);
-    }, 1000);
+    if (fetchProductListError !== null) {
+        return (
+            <div className={componentStyleName}>
+                <Search
+                    searchString={searchProductList}
+                    setSearchString={setSearch}
+                />
+                <div className='body'>
+                    <div className='error-productlist'>
+                        <div>
+                            Ошибка запроса, повторите запрос либо зайдите позже!
+                        </div>
+                        <button onClick={fetchProductList}>
+                            Повторить запрос
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className={componentStyleName}>
-            <div className='head'>
-                <div className='title'>
-                    Товары
-                </div>
-                <div className='search'>
-                    <div className='icon'>
-                        <Icon type={EIconType.Search} />
-                    </div>
-                    <input
-                        name='search'
-                        type='text'
-                        placeholder='Найти'
-                        onChange={setSearchString}
-                    />
-                </div>
-            </div>
+            <Search
+                searchString={searchProductList}
+                setSearchString={setSearch}
+            />
             <div className='body'>
                 <div className='title'>
                     <div>
@@ -90,7 +92,7 @@ const Products: React.FC = () => {
                             <Loader />
                         </div>
                     ) : (
-                        <>
+                        productList && <>
                             <div className='productList-wrap'>
                                 <ProductList
                                     productList={productList}
@@ -98,6 +100,7 @@ const Products: React.FC = () => {
                                     sortDirection={sortDirectionProductList}
                                     onSort={setSort}
                                     onSortDirection={setSortDirection}
+                                    resetData={resetData}
                                 />
                             </div>
                             <div className='pagination-wrap'>
