@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import Icon, { EIconType } from '../../components/icon';
 import CounterPages from '../../components/counterPages';
 import Loader from '../../components/loader';
@@ -16,7 +17,6 @@ const componentStyleName = 'products';
 
 const Products: React.FC = () => {
     let [isModalOpen, setIsModalOpen] = useState<EModalModeType>(EModalModeType.Close);
-
     let {
         productList,
         totalProductList,
@@ -33,7 +33,11 @@ const Products: React.FC = () => {
         resetData,
         fetchProductList,
     } = useProductList();
-    let { setNewProduct } = useAddProduct();
+    let { newProductList, setNewProduct } = useAddProduct();
+
+    // console.log(newProductList);
+
+    const setNotify = () => toast('Товар успешно добавлен!');
 
     if (fetchProductListError !== null) {
         return (
@@ -124,8 +128,21 @@ const Products: React.FC = () => {
                 <FormProductAddition
                     onAddProduct={setNewProduct}
                     onClose={setIsModalOpen}
+                    onNotify={setNotify}
                 />
             </Modal>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 }
