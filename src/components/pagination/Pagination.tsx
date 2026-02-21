@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import Icon, { EIconType } from '../icon';
 import { IPropsPagination } from './interfaces';
 import * as utils from './utils';
@@ -6,7 +6,7 @@ import './styles/index.scss';
 
 const componentStyleName = 'pagination';
 
-const Pagination: FunctionComponent<IPropsPagination> = ({ total, skip, setPage }) => {
+const Pagination: FunctionComponent<IPropsPagination> = memo(({ total, skip, setPage }) => {
     const currentPage = utils.getCurrentPage(skip);
     const prevPage = utils.getPrevPage(total, skip);
     const nexttPage = utils.getNextPage(total, skip);
@@ -71,6 +71,6 @@ const Pagination: FunctionComponent<IPropsPagination> = ({ total, skip, setPage 
             </div>
         </div>
     );
-};
+});
 
 export default Pagination;
