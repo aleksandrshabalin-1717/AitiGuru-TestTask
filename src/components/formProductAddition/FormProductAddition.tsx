@@ -6,7 +6,7 @@ import './styles/index.scss';
 
 const componentStyleName = 'form-add';
 
-const FormProductAddition: FunctionComponent<IPropsFormProductAddition> = ({ onAddProduct, onClose }) => {
+const FormProductAddition: FunctionComponent<IPropsFormProductAddition> = ({ onAddProduct, onClose, onNotify }) => {
     const [title, setTitle] = useState<string | null>(null);
     const [titleError, setTitleError] = useState<boolean>(false);
     const [category, setCategory] = useState<string | null>(null);
@@ -105,7 +105,9 @@ const FormProductAddition: FunctionComponent<IPropsFormProductAddition> = ({ onA
             sku: sku?? '',
         });
 
-        setIsSuccess(true);
+        // setIsSuccess(true);
+        onCloseForm();
+        onNotify();
     }
 
     const onCloseForm = () => {

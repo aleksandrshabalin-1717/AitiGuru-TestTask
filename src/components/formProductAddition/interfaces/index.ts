@@ -4,6 +4,7 @@ import { EModalModeType } from '../../modal';
 interface IPropsFormProductAddition {
     onAddProduct: (product: INewProduct) => void;
     onClose: (value: EModalModeType) => void;
+    onNotify: () => void;
 };
 
 export {

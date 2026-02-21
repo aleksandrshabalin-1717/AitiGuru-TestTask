@@ -12,6 +12,7 @@ const useAddProduct = () => {
     // }, []);
 
     return ({
+        newProductList,
         setNewProduct,
     });
 }
